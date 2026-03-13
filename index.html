@@ -809,8 +809,8 @@ function sendAuditResults() {
     grade_title: sd.t,
     grade_desc: sd.d,
     strongest_cat: strongest.title + ' (' + strongest.score + '/' + strongest.total + ')',
-    weak_cat1: isTopGrade ? '' : (weakest[0] ? weakest[0].title + ' (' + weakest[0].score + '/' + weakest[0].total + ')' : ''),
-    weak_tip1: isTopGrade ? '' : tip1,
+    weak_cat1: isTopGrade ? '🏆 Absolute legend behaviour' : (weakest[0] ? weakest[0].title + ' (' + weakest[0].score + '/' + weakest[0].total + ')' : ''),
+    weak_tip1: isTopGrade ? 'Honestly?! A+?! You should be incredibly proud — this is genuinely rare and it shows how seriously you take your brand! Come back and do this audit again in 6 months to make sure you\'re keeping those standards up — brands need love and attention to stay this sharp!' : tip1,
     weak_cat2: isTopGrade ? '' : (weakest[1] ? weakest[1].title + ' (' + weakest[1].score + '/' + weakest[1].total + ')' : ''),
     weak_tip2: isTopGrade ? '' : tip2,
     is_top_grade: isTopGrade ? 'yes' : 'no'
