@@ -800,6 +800,8 @@ function sendAuditResults() {
     }
   });
 
+  var isTopGrade = sd.g === 'A+';
+
   var params = {
     from_email: email,
     score: score + '/' + TOTAL,
@@ -807,10 +809,11 @@ function sendAuditResults() {
     grade_title: sd.t,
     grade_desc: sd.d,
     strongest_cat: strongest.title + ' (' + strongest.score + '/' + strongest.total + ')',
-    weak_cat1: weakest[0] ? weakest[0].title + ' (' + weakest[0].score + '/' + weakest[0].total + ')' : '',
-    weak_tip1: tip1,
-    weak_cat2: weakest[1] ? weakest[1].title + ' (' + weakest[1].score + '/' + weakest[1].total + ')' : '',
-    weak_tip2: tip2
+    weak_cat1: isTopGrade ? '' : (weakest[0] ? weakest[0].title + ' (' + weakest[0].score + '/' + weakest[0].total + ')' : ''),
+    weak_tip1: isTopGrade ? '' : tip1,
+    weak_cat2: isTopGrade ? '' : (weakest[1] ? weakest[1].title + ' (' + weakest[1].score + '/' + weakest[1].total + ')' : ''),
+    weak_tip2: isTopGrade ? '' : tip2,
+    is_top_grade: isTopGrade ? 'yes' : 'no'
   };
 
   emailjs.send('service_x5llg8l', 'template_xesbz0s', params)
